@@ -3,36 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>NumeroX - Virtual Phone Numbers for Verification | International SMS Services</title>
-    
-    <meta name="description" content="Get instant international virtual phone numbers for verification. Verify WhatsApp, Facebook, Telegram, and more with NumeroX. 98% success rate, instant delivery, and secure verification services.">
-    <meta name="keywords" content="virtual phone number, SMS verification, international phone numbers, WhatsApp verification, Telegram verification, Facebook verification, TikTok verification, online SMS, temporary phone number, verification service">
-    <meta name="author" content="NumeroX">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
-    
-    <meta property="og:title" content="NumeroX - Virtual Phone Numbers for Verification">
-    <meta property="og:description" content="Get instant international virtual phone numbers for verification. Verify WhatsApp, Facebook, Telegram, and more with 98% success rate.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://numerox.com">
-    <meta property="og:image" content="numerox.png">
-    <meta property="og:site_name" content="NumeroX">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="NumeroX - Virtual Phone Numbers for Verification">
-    <meta name="twitter:description" content="Get instant international virtual phone numbers for verification. Verify WhatsApp, Facebook, Telegram, and more.">
-    <meta name="twitter:image" content="numerox.png">
-    
-    <link rel="canonical" href="https://numerox.com">
-    <link rel="icon" type="image/png" href="numerox.png">
-    <link rel="apple-touch-icon" href="numerox.png">
-    
-    <meta name="theme-color" content="#10b981">
-    <meta name="msapplication-TileColor" content="#10b981">
-    <meta name="msapplication-TileImage" content="numerox.png">
-    
+    <title>NumeroX - Virtual Phone Numbers for Verification</title>
     <style>
         * {
             margin: 0;
@@ -65,10 +36,6 @@
             transition: all 0.3s ease;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         .header {
             position: sticky;
             top: 0;
@@ -80,7 +47,6 @@
             justify-content: space-between;
             z-index: 100;
             box-shadow: var(--shadow);
-            backdrop-filter: blur(10px);
         }
 
         .logo-section {
@@ -109,43 +75,6 @@
             align-items: center;
         }
 
-        .animated-x {
-            display: inline-block;
-            margin-left: -2px;
-        }
-
-        .animated-x svg {
-            width: 24px;
-            height: 24px;
-            display: block;
-        }
-
-        @keyframes glowPulse {
-            0%, 100% {
-                filter: drop-shadow(0 0 3px rgba(16, 185, 129, 0.6));
-            }
-            50% {
-                filter: drop-shadow(0 0 8px rgba(16, 185, 129, 1)) drop-shadow(0 0 12px rgba(16, 185, 129, 0.8));
-            }
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .animated-x svg {
-            animation: glowPulse 2s ease-in-out infinite;
-        }
-
-        .animated-x:hover svg {
-            animation: glowPulse 2s ease-in-out infinite, rotate 1s ease-in-out;
-        }
-
         .header-icons {
             display: flex;
             align-items: center;
@@ -159,12 +88,11 @@
             cursor: pointer;
             padding: 0.5rem;
             border-radius: 50%;
-            transition: background 0.3s, transform 0.2s;
+            transition: background 0.3s;
         }
 
         .icon-btn:hover {
             background: var(--card-bg);
-            transform: scale(1.1);
         }
 
         .icon-btn svg {
@@ -185,8 +113,8 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         .popup {
@@ -246,11 +174,6 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--text-color);
-            transition: transform 0.2s;
-        }
-
-        .close-btn:hover {
-            transform: rotate(90deg);
         }
 
         .notification-item {
@@ -258,11 +181,6 @@
             background: var(--card-bg);
             border-radius: 0.5rem;
             margin-bottom: 0.5rem;
-            transition: transform 0.2s;
-        }
-
-        .notification-item:hover {
-            transform: translateX(5px);
         }
 
         .notification-item h4 {
@@ -334,12 +252,6 @@
             background: var(--bg-color);
             color: var(--text-color);
             font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        select:focus, input:focus {
-            outline: none;
-            border-color: var(--primary-color);
         }
 
         .profile-info {
@@ -377,13 +289,10 @@
         .btn-primary {
             background: var(--primary-color);
             color: white;
-            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
         }
 
         .btn-primary:hover {
             background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
         }
 
         .btn-secondary {
@@ -459,12 +368,11 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            transition: background 0.3s, transform 0.2s;
+            transition: background 0.3s;
         }
 
         .sidebar-item:hover {
             background: var(--card-bg);
-            transform: translateX(-5px);
         }
 
         .sidebar-item svg {
@@ -475,7 +383,7 @@
 
         .hero {
             position: relative;
-            min-height: 400px;
+            min-height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -483,17 +391,6 @@
             text-align: center;
             padding: 3rem 1rem;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.8), rgba(5, 150, 105, 0.9));
-            z-index: 1;
         }
 
         .hero-bg {
@@ -513,51 +410,28 @@
         }
 
         .hero-bg:nth-child(1) {
-            background: url('hero-bg1.jpg') center/cover no-repeat;
-        }
+  background: linear-gradient(135deg, rgba(16,185,129,0.9), rgba(5,150,105,0.9)),
+              url('hero-bg1.jpg');
+}
 
-        .hero-bg:nth-child(2) {
-            background: url('hero-bg2.jpg') center/cover no-repeat;
-        }
+.hero-bg:nth-child(2) {
+  background: linear-gradient(135deg, rgba(16,185,129,0.9), rgba(5,150,105,0.9)),
+              url('hero-bg2.jpg');
+}
 
         .hero-content {
             position: relative;
-            z-index: 2;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
 
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero p {
             font-size: 1.2rem;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 0.9;
         }
 
         .container {
@@ -596,12 +470,6 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .store-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         .testimonials {
@@ -616,18 +484,11 @@
             padding: 1.5rem;
             border-radius: 1rem;
             box-shadow: var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
 
         .stars {
             color: #fbbf24;
             margin-bottom: 0.5rem;
-            font-size: 1.2rem;
         }
 
         .testimonial-author {
@@ -650,11 +511,6 @@
             border-radius: 0.5rem;
             margin-bottom: 1rem;
             overflow: hidden;
-            transition: transform 0.2s;
-        }
-
-        .faq-item:hover {
-            transform: scale(1.01);
         }
 
         .faq-question {
@@ -664,7 +520,6 @@
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
-            transition: background 0.3s;
         }
 
         .faq-question:hover {
@@ -709,12 +564,10 @@
             color: var(--text-color);
             text-decoration: none;
             padding: 0.25rem 0;
-            transition: color 0.3s, transform 0.2s;
         }
 
         .footer-link:hover {
             color: var(--primary-color);
-            transform: translateX(5px);
         }
 
         .copyright {
@@ -739,24 +592,10 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             z-index: 500;
             transition: transform 0.3s;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
         }
 
         .floating-help:hover {
             transform: scale(1.1);
-            animation: none;
         }
 
         .floating-help svg {
@@ -799,7 +638,6 @@
             cursor: pointer;
             border-radius: 0.5rem;
             font-weight: 600;
-            transition: all 0.3s;
         }
 
         .auth-tab.active {
@@ -855,7 +693,6 @@
             gap: 0.5rem;
             cursor: pointer;
             font-weight: 600;
-            transition: background 0.3s;
         }
 
         .google-btn:hover {
@@ -905,24 +742,6 @@
             display: inline-block;
         }
 
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .gradient-bg {
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-        }
-
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 1.75rem;
@@ -948,24 +767,9 @@
 
     <header class="header">
         <div class="logo-section">
-            <img src="numerox.png" alt="NumeroX Logo" class="logo-img">
-            <div class="brand-name">
-                Numero<span class="animated-x"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="xGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:1">
-                                <animate attributeName="stop-color" values="#10b981;#059669;#10b981" dur="3s" repeatCount="indefinite"/>
-                            </stop>
-                            <stop offset="100%" style="stop-color:#059669;stop-opacity:1">
-                                <animate attributeName="stop-color" values="#059669;#10b981;#059669" dur="3s" repeatCount="indefinite"/>
-                            </stop>
-                        </linearGradient>
-                    </defs>
-                    <path fill="url(#xGradient)" d="M18.36 5.64c-.39-.39-1.02-.39-1.41 0L12 10.59 7.05 5.64c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12l-4.95 4.95c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.95 4.95c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.95-4.95c.38-.38.38-1.02 0-1.41z">
-                        <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="2s" repeatCount="indefinite"/>
-                    </path>
-                </svg></span>
-            </div>
+    <img src="numerox.png" alt="NumeroX Logo" class="logo-img">
+    <div class="brand-name">NumeroX</div>
+</div>
         </div>
         <div class="header-icons">
             <button class="icon-btn" id="notificationBtn">
@@ -1007,13 +811,13 @@
     <div class="popup" id="settingsPopup">
         <div class="popup-content">
             <div class="popup-header">
-                <h3>Settings</h3>
+                <h3 data-translate="settingsTitle">Settings</h3>
                 <button class="close-btn" onclick="closePopup('settingsPopup')">&times;</button>
             </div>
             
             <div class="settings-item">
                 <div class="toggle-switch">
-                    <h4>Dark Mode</h4>
+                    <h4 data-translate="darkMode">Dark Mode</h4>
                     <div class="switch" id="themeSwitch" onclick="toggleTheme()">
                         <div class="switch-slider"></div>
                     </div>
@@ -1021,42 +825,43 @@
             </div>
 
             <div class="settings-item">
-                <h4>Language</h4>
+                <h4 data-translate="language">Language</h4>
                 <select id="languageSelect" onchange="changeLanguage(this.value)">
                     <option value="en">English</option>
-                    <option value="es">Español</option>
-                    <option value="ar">العربية</option>
-                    <option value="ur">اردو</option>
-                    <option value="id">Bahasa Indonesia</option>
+                    <option value="ar">Arabic</option>
+                    <option value="ur">Urdu</option>
+                    <option value="id">Indonesian</option>
+                    <option value="pt">Portuguese</option>
+                    <option value="hi">Hindi</option>
+                    <option value="es">Spanish</option>
                 </select>
             </div>
 
             <div class="settings-item">
-                <h4>Profile</h4>
+                <h4 data-translate="profile">Profile</h4>
                 <div class="profile-info">
                     <div class="avatar" id="profileAvatar">U</div>
                     <div>
                         <div id="profileEmail">Not logged in</div>
-                        <div style="font-size: 0.875rem; color: #6b7280;" id="profileCountry">-</div>
+                        <div id="profileCountry" style="font-size: 0.875rem; color: #6b7280;">-</div>
                     </div>
                 </div>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="openAuthPopup()">Login / Sign Up</button>
             </div>
 
             <div class="settings-item">
-                <h4>Active Sessions</h4>
-                <div id="sessionsList" style="font-size: 0.875rem; color: #6b7280;">
-                    No active sessions
+                <h4 data-translate="activeSessions">Active Sessions</h4>
+                <div id="activeSessions" style="font-size: 0.875rem; color: #6b7280;">
+                    Loading...
                 </div>
             </div>
 
             <div class="settings-item">
                 <h4>API Keys</h4>
-                <button class="btn btn-secondary" style="width: 100%;" onclick="showApiKeys()">Manage API Keys</button>
+                <button class="btn btn-secondary" style="width: 100%;" onclick="showApiKeys()">View API Keys</button>
             </div>
 
             <div class="settings-item">
-                <button class="btn btn-danger" style="width: 100%;" onclick="handleLogout()">Logout</button>
+                <button class="btn btn-danger" style="width: 100%;" onclick="logout()">Logout</button>
             </div>
         </div>
     </div>
@@ -1066,89 +871,109 @@
             <h3>Menu</h3>
             <button class="close-btn" onclick="toggleSidebar()">&times;</button>
         </div>
-        
         <div class="sidebar-item" onclick="window.location.href='index.html'">
             <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
             <span>Home</span>
         </div>
-        
         <div class="sidebar-item" onclick="window.location.href='about.html'">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
             <span>About Us</span>
         </div>
-        
         <div class="sidebar-item" onclick="window.location.href='privacy.html'">
             <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
             <span>Privacy Policy</span>
         </div>
-        
         <div class="sidebar-item" onclick="window.location.href='terms.html'">
             <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
             <span>Terms & Conditions</span>
         </div>
-        
+        <div class="sidebar-item" onclick="window.location.href='cookies.html'">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            <span>Cookie Policy</span>
+        </div>
+        <div class="sidebar-item" onclick="scrollToSection('faq')">
+            <svg viewBox="0 0 24 24"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>
+            <span>FAQ</span>
+        </div>
         <div class="sidebar-item" onclick="window.location.href='pricing.html'">
             <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
             <span>Pricing</span>
         </div>
-        
-        <div class="sidebar-item" onclick="window.location.href='#faq'">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
-            <span>FAQ</span>
-        </div>
-        
-        <div class="sidebar-item" onclick="window.location.href='#contact'">
+        <div class="sidebar-item" onclick="scrollToSection('contact')">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             <span>Contact Us</span>
         </div>
     </div>
 
-    <section class="hero gradient-bg">
-        <div class="hero-bg"></div>
+    <div class="hero">
+        <div class="hero-bg active"></div>
         <div class="hero-bg"></div>
         <div class="hero-content">
             <h1 data-translate="heroTitle">Verify Your Accounts Securely</h1>
             <p data-translate="heroSubtitle">Get instant international phone numbers for verification</p>
-            <button class="btn btn-primary" style="margin-top: 2rem;" onclick="openAuthPopup()">Get Started</button>
+            <button class="btn btn-primary" style="margin-top: 1.5rem; font-size: 1.1rem;" onclick="checkAuthAndRedirect()" data-translate="getStarted">Get Started</button>
         </div>
-    </section>
+    </div>
 
-    <div class="container fade-in">
-        <h2 class="section-title">Our Verified Apps</h2>
+    <div class="container">
+        <h2 class="section-title">
+            Our Verified Apps 
+            <svg width="24" height="24" viewBox="0 0 24 24" style="display: inline-block; vertical-align: middle; fill: #10b981;">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+        </h2>
         <p class="section-subtitle">Download our verified apps from official stores</p>
+        
         <div class="app-stores">
-            <a href="#" class="store-link">
+            <a href="https://play.google.com/store/apps/details?id=com.numeroX" class="store-link" target="_blank">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                    <path d="M17.523 15.341c-.44.943-.9 1.8-1.383 2.57-.665.993-1.211 1.685-1.639 2.073-.66.625-1.366.945-2.119.965-.543 0-1.197-.155-1.958-.471-.764-.311-1.465-.466-2.105-.466-.681 0-1.412.155-2.192.466-.78.315-1.409.481-1.887.502-.71.042-1.436-.289-2.176-.993-.464-.425-1.046-1.145-1.746-2.158C.61 16.467.062 14.986.012 13.568c-.049-1.484.328-2.764.887-3.839.7-1.343 1.628-2.402 2.787-3.178 1.16-.776 2.414-1.171 3.764-1.191.739 0 1.706.229 2.905.681 1.195.45 1.961.679 2.298.679.252 0 1.106-.268 2.555-.8 1.368-.503 2.523-.711 3.47-.629 2.563.209 4.489 1.229 5.771 3.066-2.292 1.388-3.424 3.332-3.397 5.828.026 1.945.728 3.564 2.104 4.853.624.597 1.32 1.059 2.09 1.388-.168.487-.344.955-.53 1.405zM14.756 1.016c0 1.524-.557 2.947-1.669 4.265-1.343 1.575-2.968 2.484-4.732 2.341-.022-.182-.035-.374-.035-.576 0-1.462.638-3.03 1.768-4.309.564-.647 1.282-1.184 2.15-1.608.867-.418 1.686-.66 2.457-.713.023.2.035.4.035.6z"/>
-                </svg>
-                App Store
-            </a>
-            <a href="#" class="store-link">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                    <path d="M3.609 1.814L13.792 12 3.61 22.186c-.168-.081-.32-.207-.447-.381-.243-.335-.374-.744-.374-1.159V3.354c0-.415.131-.824.374-1.159.127-.174.279-.3.447-.381zm10.89 10.89l2.302 2.302-10.937 6.333c-.286.166-.612.236-.937.216l8.573-8.851zM20.997 10.9c.382.233.709.545.959.916.263.388.402.839.402 1.296s-.139.908-.402 1.296c-.25.371-.577.683-.959.916l-2.614 1.512-2.707-2.708 2.707-2.708 2.614 1.512zM5.057 2.764L15.994 9.096l-2.302 2.302-8.573-8.851c.325-.02.651.05.937.216z"/>
+                    <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zM16.81 15.12l-6.12-3.62 6.12-3.62 3.74 2.21c.69.41.69 1.52 0 1.93l-3.74 2.1zM4.16 3.89l10.46 6.2-3.18 1.88L4.16 3.89zM14.62 13.09l-3.18 1.88L4.16 20.11l10.46-7.02z"/>
                 </svg>
                 Google Play
             </a>
+            <a href="https://play.google.com/store/apps/details?id=com.numeroX" class="store-link" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                App Store
+            </a>
         </div>
     </div>
 
-    <div class="container fade-in" style="text-align: center; padding: 3rem 1rem;">
+    <div class="container">
         <h2 class="section-title">Trusted by thousands worldwide</h2>
-        <div class="counter" id="counter">0</div>
-        <p style="color: #6b7280;">verifications completed</p>
-    </div>
+        <div class="counter" id="counter" style="text-align: center;">12,000</div>
+        <p class="section-subtitle">verifications completed</p>
 
-    <div class="container fade-in">
-        <h2 class="section-title">What Our Users Say</h2>
         <div class="testimonials">
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p>Amazing service! I was able to verify my WhatsApp account in less than 2 minutes. The interface is super simple!</p>
+                <p>Best online number provider. Good service and fast delivery. Exactly what I needed.</p>
                 <div class="testimonial-author">
-                    John <span class="verified-badge">VERIFIED BUYER</span>
+                    Michael <span class="verified-badge">VERIFIED BUYER</span>
                 </div>
                 <div style="margin-top: 0.5rem; font-size: 0.875rem; color: #6b7280;">
-                    <span>🇺🇸 USA</span> • <span>+1 (555) 123-****</span>
+                    <span>🇺🇸 United States</span> • <span>+1 (312) 456-****</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>Super good stuff - it finally worked. I'm super happy I have an American WhatsApp account now!</p>
+                <div class="testimonial-author">
+                    Abhishek <span class="verified-badge">VERIFIED BUYER</span>
+                </div>
+                <div style="margin-top: 0.5rem; font-size: 0.875rem; color: #6b7280;">
+                    <span>🇮🇳 India</span> • <span>+1 (555) 892-****</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>There was a hiccup when the page refreshed but support responded quickly with a resolution.</p>
+                <div class="testimonial-author">
+                    Carlos <span class="verified-badge">VERIFIED BUYER</span>
+                </div>
+                <div style="margin-top: 0.5rem; font-size: 0.875rem; color: #6b7280;">
+                    <span>🇪🇸 Spain</span> • <span>+1 (650) 783-****</span>
                 </div>
             </div>
             <div class="testimonial-card">
@@ -1174,7 +999,7 @@
         </div>
     </div>
 
-    <div class="container fade-in" id="faq">
+    <div class="container" id="faq">
         <h2 class="section-title">Frequently Asked Questions</h2>
         
         <div class="faq-item">
@@ -1415,54 +1240,6 @@
     </script>
 
     <script>
-        let currentBgIndex = 0;
-        const backgrounds = document.querySelectorAll('.hero-bg');
-        
-        function rotateBackground() {
-            backgrounds[currentBgIndex].classList.remove('active');
-            currentBgIndex = (currentBgIndex + 1) % backgrounds.length;
-            backgrounds[currentBgIndex].classList.add('active');
-        }
-        
-        if (backgrounds.length > 0) {
-            backgrounds[0].classList.add('active');
-            setInterval(rotateBackground, 5000);
-        }
-
-        function animateCounter() {
-            const counter = document.getElementById('counter');
-            const target = 250000;
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-            
-            const timer = setInterval(() => {
-                current += step;
-                if (current >= target) {
-                    counter.textContent = target.toLocaleString() + '+';
-                    clearInterval(timer);
-                } else {
-                    counter.textContent = Math.floor(current).toLocaleString();
-                }
-            }, 16);
-        }
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    if (entry.target.querySelector('#counter')) {
-                        animateCounter();
-                        observer.unobserve(entry.target);
-                    }
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
         function openPopup(id) {
             document.getElementById(id).classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -1471,10 +1248,6 @@
         function closePopup(id) {
             document.getElementById(id).classList.remove('active');
             document.body.style.overflow = 'auto';
-        }
-
-        function openAuthPopup() {
-            openPopup('authPopup');
         }
 
         document.getElementById('notificationBtn').addEventListener('click', () => openPopup('notificationPopup'));
@@ -1671,148 +1444,254 @@
                 signUp: 'Daftar',
                 login: 'Masuk',
                 continueWithGoogle: 'Lanjutkan dengan Google'
+            },
+            pt: {
+                heroTitle: 'Verifique suas contas com segurança',
+                heroSubtitle: 'Obtenha números de telefone internacionais instantâneos para verificação',
+                getStarted: 'Começar',
+                verifiedApps: 'Nossos aplicativos verificados',
+                verifiedAppsDesc: 'Baixe nossos aplicativos verificados de lojas oficiais',
+                trustedTitle: 'Confiado por milhares em todo o mundo',
+                verificationsCompleted: 'verificações concluídas',
+                faqTitle: 'Perguntas Frequentes',
+                notificationTitle: 'Notificações',
+                settingsTitle: 'Configurações',
+                darkMode: 'Modo Escuro',
+                language: 'Idioma',
+                profile: 'Perfil',
+                activeSessions: 'Sessões Ativas',
+                apiKeys: 'Chaves API',
+                logout: 'Sair',
+                home: 'Início',
+                aboutUs: 'Sobre Nós',
+                privacy: 'Política de Privacidade',
+                terms: 'Termos e Condições',
+                cookies: 'Política de Cookies',
+                faq: 'Perguntas Frequentes',
+                pricing: 'Preços',
+                contact: 'Contate-nos',
+                copyright: '© 2024 NumeroX. Todos os direitos reservados.',
+                email: 'Email',
+                password: 'Senha',
+                signUp: 'Inscrever-se',
+                login: 'Entrar',
+                continueWithGoogle: 'Continuar com o Google'
+            },
+            hi: {
+                heroTitle: 'अपने खातों को सुरक्षित रूप से सत्यापित करें',
+                heroSubtitle: 'सत्यापन के लिए तत्काल अंतर्राष्ट्रीय फोन नंबर प्राप्त करें',
+                getStarted: 'शुरू करें',
+                verifiedApps: 'हमारे सत्यापित ऐप्स',
+                verifiedAppsDesc: 'आधिकारिक स्टोर से हमारे सत्यापित ऐप्स डाउनलोड करें',
+                trustedTitle: 'दुनिया भर में हजारों लोगों द्वारा विश्वसनीय',
+                verificationsCompleted: 'सत्यापन पूर्ण',
+                faqTitle: 'अक्सर पूछे जाने वाले प्रश्न',
+                notificationTitle: 'सूचनाएं',
+                settingsTitle: 'सेटिंग्स',
+                darkMode: 'डार्क मोड',
+                language: 'भाषा',
+                profile: 'प्रोफ़ाइल',
+                activeSessions: 'सक्रिय सत्र',
+                apiKeys: 'API कुंजी',
+                logout: 'लॉग आउट',
+                home: 'होम',
+                aboutUs: 'हमारे बारे में',
+                privacy: 'गोपनीयता नीति',
+                terms: 'नियम और शर्तें',
+                cookies: 'कुकी नीति',
+                faq: 'सामान्य प्रश्न',
+                pricing: 'मूल्य निर्धारण',
+                contact: 'हमसे संपर्क करें',
+                copyright: '© 2024 NumeroX. सर्वाधिकार सुरक्षित।',
+                email: 'ईमेल',
+                password: 'पासवर्ड',
+                signUp: 'साइन अप करें',
+                login: 'लॉगिन',
+                continueWithGoogle: 'Google के साथ जारी रखें'
             }
         };
 
-        function changeLanguage(lang) {
-            const translation = translations[lang];
-            document.querySelectorAll('[data-translate]').forEach(el => {
-                const key = el.getAttribute('data-translate');
-                if (translation[key]) {
-                    if (el.tagName === 'INPUT') {
-                        el.placeholder = translation[key];
-                    } else {
-                        el.textContent = translation[key];
-                    }
-                }
-            });
-            localStorage.setItem('language', lang);
-            
-            if (lang === 'ar' || lang === 'ur') {
-                document.body.style.direction = 'rtl';
-            } else {
-                document.body.style.direction = 'ltr';
-            }
-        }
-
-        const savedLanguage = localStorage.getItem('language');
-        if (savedLanguage) {
-            document.getElementById('languageSelect').value = savedLanguage;
-            changeLanguage(savedLanguage);
-        }
-
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const arrow = element.querySelector('span:last-child');
-            answer.classList.toggle('active');
-            arrow.textContent = answer.classList.contains('active') ? '▲' : '▼';
-        }
-
-        function switchAuthTab(tab) {
-            const signupTab = document.getElementById('signupTab');
-            const loginTab = document.getElementById('loginTab');
-            const signupForm = document.getElementById('signupForm');
-            const loginForm = document.getElementById('loginForm');
-
-            if (tab === 'signup') {
-                signupTab.classList.add('active');
-                loginTab.classList.remove('active');
-                signupForm.style.display = 'block';
-                loginForm.style.display = 'none';
-            } else {
-                loginTab.classList.add('active');
-                signupTab.classList.remove('active');
-                loginForm.style.display = 'block';
-                signupForm.style.display = 'none';
-            }
-        }
+        let currentBgIndex = 0;
+        const heroBackgrounds = document.querySelectorAll('.hero-bg');
+        
+        setInterval(() => {
+            heroBackgrounds[currentBgIndex].classList.remove('active');
+            currentBgIndex = (currentBgIndex + 1) % heroBackgrounds.length;
+            heroBackgrounds[currentBgIndex].classList.add('active');
+        }, 2000);
 
         function showNotification(message, type = 'success') {
             const notificationBox = document.getElementById('notificationBox');
             notificationBox.textContent = message;
             notificationBox.className = `notification-box ${type}`;
-            notificationBox.classList.add('show');
+            setTimeout(() => notificationBox.classList.add('show'), 10);
             
             setTimeout(() => {
                 notificationBox.classList.remove('show');
             }, 3000);
         }
 
-        function handleSignup() {
+        function changeLanguage(lang) {
+            localStorage.setItem('language', lang);
+            const t = translations[lang] || translations.en;
+            
+            document.documentElement.setAttribute('lang', lang);
+            
+            if (lang === 'ar' || lang === 'ur') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+            
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (t[key]) {
+                    element.textContent = t[key];
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            if (savedLanguage) {
+                document.getElementById('languageSelect').value = savedLanguage;
+                changeLanguage(savedLanguage);
+            }
+        });
+
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const allAnswers = document.querySelectorAll('.faq-answer');
+            
+            allAnswers.forEach(item => {
+                if (item !== answer) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            answer.classList.toggle('active');
+        }
+
+        let currentCount = 12000;
+        const targetCount = 12513;
+        let counterAnimated = false;
+
+        function animateCounter() {
+            if (counterAnimated) return;
+            counterAnimated = true;
+            
+            const counter = document.getElementById('counter');
+            const interval = setInterval(() => {
+                if (currentCount < targetCount) {
+                    currentCount += Math.ceil((targetCount - currentCount) / 20);
+                    counter.textContent = currentCount.toLocaleString();
+                } else {
+                    currentCount = targetCount;
+                    counter.textContent = currentCount.toLocaleString();
+                    clearInterval(interval);
+                }
+            }, 50);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter();
+                }
+            });
+        });
+
+        observer.observe(document.getElementById('counter'));
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            toggleSidebar();
+        }
+
+        function showApiKeys() {
+            alert('🔴 API Keys feature coming soon!');
+        }
+
+        function updateActiveSessions() {
+            const lastLogin = localStorage.getItem('lastLogin');
+            const sessionsDiv = document.getElementById('activeSessions');
+            
+            if (lastLogin) {
+                const date = new Date(lastLogin);
+                sessionsDiv.innerHTML = `
+                    <div>Last login: ${date.toLocaleString()}</div>
+                    <div style="margin-top: 0.5rem;">Device: ${navigator.userAgent.includes('Mobile') ? 'Mobile' : 'Desktop'}</div>
+                `;
+            } else {
+                sessionsDiv.textContent = 'No active sessions';
+            }
+        }
+
+        function switchAuthTab(tab) {
+            if (tab === 'signup') {
+                document.getElementById('signupTab').classList.add('active');
+                document.getElementById('loginTab').classList.remove('active');
+                document.getElementById('signupForm').style.display = 'block';
+                document.getElementById('loginForm').style.display = 'none';
+            } else {
+                document.getElementById('loginTab').classList.add('active');
+                document.getElementById('signupTab').classList.remove('active');
+                document.getElementById('loginForm').style.display = 'block';
+                document.getElementById('signupForm').style.display = 'none';
+            }
+        }
+
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        async function handleSignup() {
             const email = document.getElementById('signupEmail').value;
             const password = document.getElementById('signupPassword').value;
             
             document.getElementById('signupEmailError').textContent = '';
             document.getElementById('signupPasswordError').textContent = '';
-
-            if (!email) {
-                document.getElementById('signupEmailError').textContent = 'Email is required';
+            
+            if (!validateEmail(email)) {
+                document.getElementById('signupEmailError').textContent = 'Please enter a valid email';
                 return;
             }
-
-            if (!password || password.length !== 6) {
+            
+            if (!/^\d{6}$/.test(password)) {
                 document.getElementById('signupPasswordError').textContent = 'Password must be 6 digits';
                 return;
             }
-
-            window.createUserWithEmailAndPassword(window.auth, email, password)
-                .then((userCredential) => {
-                    showNotification('Account created successfully!', 'success');
-                    closePopup('authPopup');
-                })
-                .catch((error) => {
-                    showNotification(error.message, 'error');
-                });
+            
+            try {
+                await window.createUserWithEmailAndPassword(window.auth, email, password);
+                closePopup('authPopup');
+                window.location.href = 'get-started.html';
+            } catch (error) {
+                document.getElementById('signupPasswordError').textContent = error.message;
+            }
         }
 
-        function handleLogin() {
+        async function handleLogin() {
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
             
             document.getElementById('loginEmailError').textContent = '';
             document.getElementById('loginPasswordError').textContent = '';
-
-            if (!email) {
-                document.getElementById('loginEmailError').textContent = 'Email is required';
+            
+            if (!validateEmail(email)) {
+                document.getElementById('loginEmailError').textContent = 'Please enter a valid email';
                 return;
             }
-
-            if (!password) {
-                document.getElementById('loginPasswordError').textContent = 'Password is required';
-                return;
+            
+            try {
+                await window.signInWithEmailAndPassword(window.auth, email, password);
+                showNotification('Login successful!', 'success');
+                closePopup('authPopup');
+                window.location.href = 'get-started.html';
+            } catch (error) {
+                showNotification('Invalid email or password', 'error');
+                document.getElementById('loginPasswordError').textContent = 'Invalid credentials';
             }
-
-            window.signInWithEmailAndPassword(window.auth, email, password)
-                .then((userCredential) => {
-                    showNotification('Logged in successfully!', 'success');
-                    closePopup('authPopup');
-                })
-                .catch((error) => {
-                    showNotification(error.message, 'error');
-                });
-        }
-
-        function handleGoogleAuth() {
-            const provider = new window.GoogleAuthProvider();
-            window.signInWithPopup(window.auth, provider)
-                .then((result) => {
-                    showNotification('Logged in with Google successfully!', 'success');
-                    closePopup('authPopup');
-                })
-                .catch((error) => {
-                    showNotification(error.message, 'error');
-                });
-        }
-
-        function handleLogout() {
-            window.signOut(window.auth)
-                .then(() => {
-                    showNotification('Logged out successfully!', 'success');
-                    closePopup('settingsPopup');
-                })
-                .catch((error) => {
-                    showNotification(error.message, 'error');
-                });
         }
 
         function openForgotPassword() {
@@ -1820,7 +1699,7 @@
             openPopup('forgotPasswordPopup');
         }
 
-        function handlePasswordReset() {
+        async function handlePasswordReset() {
             const email = document.getElementById('resetEmail').value;
             document.getElementById('resetEmailError').textContent = '';
 
@@ -1829,28 +1708,57 @@
                 return;
             }
 
-            window.sendPasswordResetEmail(window.auth, email)
-                .then(() => {
-                    showNotification('Password reset email sent!', 'success');
-                    closePopup('forgotPasswordPopup');
-                })
-                .catch((error) => {
-                    showNotification(error.message, 'error');
-                });
-        }
-
-        function updateActiveSessions() {
-            const lastLogin = localStorage.getItem('lastLogin');
-            if (lastLogin) {
-                const date = new Date(lastLogin);
-                const sessionsList = document.getElementById('sessionsList');
-                sessionsList.innerHTML = `Last login: ${date.toLocaleString()}`;
+            try {
+                await window.sendPasswordResetEmail(window.auth, email);
+                showNotification('Password reset email sent! Check your inbox.', 'success');
+                closePopup('forgotPasswordPopup');
+            } catch (error) {
+                showNotification(error.message, 'error');
+                document.getElementById('resetEmailError').textContent = error.message;
             }
         }
 
-        function showApiKeys() {
-            alert('API Keys management coming soon!');
+        async function handleGoogleAuth() {
+            try {
+                const provider = new window.GoogleAuthProvider();
+                await window.signInWithPopup(window.auth, provider);
+                showNotification('Signed in with Google successfully!', 'success');
+                closePopup('authPopup');
+                window.location.href = 'get-started.html';
+            } catch (error) {
+                showNotification(error.message, 'error');
+            }
         }
+
+        function checkAuthAndRedirect() {
+            const user = window.auth.currentUser;
+            const lastLogin = localStorage.getItem('lastLogin');
+            
+            if (user && lastLogin) {
+                const daysSinceLogin = (Date.now() - new Date(lastLogin)) / (1000 * 60 * 60 * 24);
+                if (daysSinceLogin < 1) {
+                    window.location.href = 'get-started.html';
+                    return;
+                }
+            }
+            
+            openPopup('authPopup');
+        }
+
+        async function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                try {
+                    await window.signOut(window.auth);
+                    localStorage.removeItem('lastLogin');
+                    closePopup('settingsPopup');
+                    alert('Logged out successfully');
+                } catch (error) {
+                    alert('Logout failed: ' + error.message);
+                }
+            }
+        }
+
+        updateActiveSessions();
     </script>
 </body>
 </html>
