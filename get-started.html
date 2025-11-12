@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"="width=device-width, initial-scale=1.0">
+    <title>Get Started - NumeroX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #10b981;
+            --secondary-color: #059669;
+            --bg-color: #ffffff;
+            --text-color: #1f2937;
+            --card-bg: #f9fafb;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1f2937;
+            --text-color: #f9fafb;
+            --card-bg: #374151;
+            --border-color: #4b5563;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            min-height: 100vh;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            background: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 2px solid var(--border-color);
+        }
+
+        .step-number.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .step-title {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-subtitle {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .dropdown {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            background: var(--bg-color);
+            color: var(--text-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropdown:hover {
+            border-color: var(--primary-color);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-color);
+            border-radius: 1rem;
+            max-width: 90%;
+            width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: var(--bg-color);
+            z-index: 10;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            background: var(--bg-color);
+            color: var(--text-color);
+            margin-top: 1rem;
+        }
+
+        .service-list {
+            padding: 1rem;
+        }
+
+        .service-category {
+            margin-bottom: 1rem;
+        }
+
+        .category-title {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .service-item:hover {
+            background: var(--card-bg);
+        }
+
+        .service-item.selected {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .country-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .country-item:hover {
+            border-color: var(--primary-color);
+            background: var(--card-bg);
+        }
+
+        .country-item.selected {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .country-flag {
+            font-size: 2rem;
+        }
+
+        .country-info {
+            flex: 1;
+        }
+
+        .country-badge {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+        }
+
+        .phone-number-item {
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .phone-number-item:hover {
+            border-color: var(--primary-color);
+        }
+
+        .phone-number-item.selected {
+            border-color: var(--primary-color);
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .badge {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: #ef4444;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .phone-number {
+            font-size: 1.25rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .plan-card {
+            border: 2px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .plan-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .plan-card.selected {
+            border-color: var(--primary-color);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .plan-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+
+        .plan-features {
+            list-style: none;
+        }
+
+        .plan-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+            float: right;
+        }
+
+        @media (max-width: 768px) {
+            .plan-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-group {
+                flex-direction: column-reverse;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-section" onclick="window.location.href='index.html'" style="cursor: pointer;">
+            <div class="logo-img">N</div>
+            <div class="brand-name">NumeroX</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="step-indicator">
+            <div class="step-number active" id="stepIndicator">1</div>
+            <span style="margin: 0 1rem; color: #6b7280;">Step <span id="currentStep">1</span> of 6</span>
+        </div>
+
+        <div class="card">
+            <div id="step1" class="step-content">
+                <h2 class="step-title">Choose your Platform & Location</h2>
+                <p class="step-subtitle">Select the platform you want to verify and your preferred country. Success rates shown are real-time based on current availability.</p>
+
+                <div class="form-group">
+                    <label>Service</label>
+                    <div class="dropdown" onclick="openServiceModal()">
+                        <div>
+                            <div id="selectedServiceName">WhatsApp</div>
+                            <div style="font-size: 0.875rem; color: #6b7280;">Messaging</div>
+                        </div>
+                        <span>▼</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Country</label>
+                    <div class="dropdown" onclick="openCountryModal()">
+                        <div>
+                            <div id="selectedCountryName">🇺🇸 United States</div>
+                            <div style="font-size: 0.875rem; color: #6b7280;">+1 • 96% success</div>
+                        </div>
+                        <span>▼</span>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="goToStep(2)">
+                        Continue →
+                    </button>
+                </div>
+            </div>
+
+            <div id="step2" class="step-content" style="display: none;">
+                <h2 class="step-title">Select Your Phone Number</h2>
+                <p class="step-subtitle">Choose from available phone numbers for your verification process</p>
+
+                <h4 style="margin-bottom: 1rem;">Available Numbers</h4>
+
+                <div id="phoneNumbers"></div>
+
+                <div class="btn-group">
+                    <button class="btn btn-secondary" onclick="goToStep(1)">Back</button>
+                    <button class="btn btn-primary" onclick="goToStep(3)">Continue →</button>
+                </div>
+            </div>
+
+            <div id="step3" class="step-content" style="display: none;">
+                <h2 class="step-title">Choose Your Plan</h2>
+                <p class="step-subtitle">Select your subscription plan and complete your purchase</p>
+
+                <div class="plan-grid" id="planOptions"></div>
+
+                <div class="btn-group">
+                    <button class="btn btn-secondary" onclick="goToStep(2)">Back</button>
+                    <button class="btn btn-primary" onclick="proceedToPayment()">Continue to Payment →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeModal('serviceModal')">&times;</button>
+                <h3>Choose Your Service</h3>
+                <input type="text" class="search-box" placeholder="Search services..." oninput="searchServices(this.value)">
+            </div>
+            <div class="service-list" id="serviceList"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="countryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeModal('countryModal')">&times;</button>
+                <h3>Choose Your Country</h3>
+                <p style="font-size: 0.875rem; color: #6b7280; margin-top: 0.5rem;">US numbers are most reliable. Suggested countries shown first.</p>
+                <input type="text" class="search-box" placeholder="Search countries..." oninput="searchCountries(this.value)">
+            </div>
+            <div class="service-list" id="countryList"></div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBtx-D3nbl1lKOhCzEixDZRgRDM4NbtOBE",
+            authDomain: "swiftauth-5fcb5.firebaseapp.com",
+            projectId: "swiftauth-5fcb5",
+            storageBucket: "swiftauth-5fcb5.firebasestorage.app",
+            messagingSenderId: "990160652137",
+            appId: "1:990160652137:web:abac238567edfdb5671ff8",
+            measurementId: "G-5C1DS28B5S"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+    <script>
+        const services = [
+            {name: 'WhatsApp', category: 'Messaging', icon: '💬', color: '#25D366'},
+            {name: 'Facebook', category: 'Social', icon: '📘', color: '#1877F2'},
+            {name: 'Telegram', category: 'Messaging', icon: '✈️', color: '#0088cc'},
+            {name: 'Instagram', category: 'Social', icon: '📷', color: '#E4405F'},
+            {name: 'TikTok', category: 'Social', icon: '🎵', color: '#000000'},
+            {name: 'Snapchat', category: 'Social', icon: '👻', color: '#FFFC00'},
+            {name: 'Reddit', category: 'Social', icon: '🤖', color: '#FF4500'},
+            {name: 'Discord', category: 'Social', icon: '🎮', color: '#5865F2'},
+            {name: 'Apple', category: 'Tech', icon: '🍎', color: '#000000'},
+            {name: 'Airbnb', category: 'Travel', icon: '🏠', color: '#FF5A5F'},
+            {name: 'Lyft', category: 'Transport', icon: '🚗', color: '#FF00BF'},
+            {name: 'Uber', category: 'Transport', icon: '🚕', color: '#000000'},
+            {name: 'Microsoft', category: 'Tech', icon: '🪟', color: '#00A4EF'},
+            {name: 'Google', category: 'Tech', icon: '🔍', color: '#4285F4'},
+            {name: 'Amazon', category: 'Shopping', icon: '📦', color: '#FF9900'},
+            {name: 'LinkedIn', category: 'Professional', icon: '💼', color: '#0A66C2'},
+            {name: 'Spotify', category: 'Entertainment', icon: '🎧', color: '#1DB954'},
+            {name: 'Steam', category: 'Gaming', icon: '🎮', color: '#000000'},
+            {name: 'Twitter/X', category: 'Social', icon: '🐦', color: '#1DA1F2'}
+        ];
+
+        const countries = [
+            {name: 'United States', flag: '🇺🇸', code: '+1', success: '97%', badge: 'Most Reliable', region: 'North America'},
+            {name: 'United Kingdom', flag: '🇬🇧', code: '+44', success: '98%', badge: 'Reliable', region: 'Europe'},
+            {name: 'Finland', flag: '🇫🇮', code: '+358', success: '95%', region: 'Europe'},
+            {name: 'South Africa', flag: '🇿🇦', code: '+27', success: '92%', region: 'Africa'},
+            {name: 'Indonesia', flag: '🇮🇩', code: '+62', success: '94%', region: 'Asia'},
+            {name: 'Serbia', flag: '🇷🇸', code: '+381', success: '93%', region: 'Europe'},
+            {name: 'Ukraine', flag: '🇺🇦', code: '+380', success: '91%', region: 'Europe'},
+            {name: 'Georgia', flag: '🇬🇪', code: '+995', success: '90%', region: 'Asia'},
+            {name: 'Poland', flag: '🇵🇱', code: '+48', success: '96%', region: 'Europe'},
+            {name: 'Latvia', flag: '🇱🇻', code: '+371', success: '94%', region: 'Europe'},
+            {name: 'Slovenia', flag: '🇸🇮', code: '+386', success: '93%', region: 'Europe'},
+            {name: 'Romania', flag: '🇷🇴', code: '+40', success: '92%', region: 'Europe'},
+            {name: 'Hungary', flag: '🇭🇺', code: '+36', success: '94%', region: 'Europe'},
+            {name: 'Morocco', flag: '🇲🇦', code: '+212', success: '89%', region: 'Africa'},
+            {name: 'Israel', flag: '🇮🇱', code: '+972', success: '95%', region: 'Asia'},
+            {name: 'Japan', flag: '🇯🇵', code: '+81', success: '97%', region: 'Asia'},
+            {name: 'Czech Republic', flag: '🇨🇿', code: '+420', success: '93%', region: 'Europe'},
+            {name: 'Slovakia', flag: '🇸🇰', code: '+421', success: '92%', region: 'Europe'},
+            {name: 'Bulgaria', flag: '🇧🇬', code: '+359', success: '91%', region: 'Europe'},
+            {name: 'Portugal', flag: '🇵🇹', code: '+351', success: '95%', region: 'Europe'},
+            {name: 'Croatia', flag: '🇭🇷', code: '+385', success: '93%', region: 'Europe'},
+            {name: 'Thailand', flag: '🇹🇭', code: '+66', success: '94%', region: 'Asia'},
+            {name: 'Kenya', flag: '🇰🇪', code: '+254', success: '90%', region: 'Africa'},
+            {name: 'Cyprus', flag: '🇨🇾', code: '+357', success: '92%', region: 'Europe'},
+            {name: 'Brazil', flag: '🇧🇷', code: '+55', success: '93%', region: 'South America'},
+            {name: 'Malaysia', flag: '🇲🇾', code: '+60', success: '94%', region: 'Asia'},
+            {name: 'Germany', flag: '🇩🇪', code: '+49', success: '96%', region: 'Europe'},
+            {name: 'Australia', flag: '🇦🇺', code: '+61', success: '97%', region: 'Oceania'},
+            {name: 'Sweden', flag: '🇸🇪', code: '+46', success: '95%', region: 'Europe'},
+            {name: 'Switzerland', flag: '🇨🇭', code: '+41', success: '96%', region: 'Europe'},
+            {name: 'Moldova', flag: '🇲🇩', code: '+373', success: '91%', region: 'Europe'},
+            {name: 'Greece', flag: '🇬🇷', code: '+30', success: '93%', region: 'Europe'},
+            {name: 'Estonia', flag: '🇪🇪', code: '+372', success: '94%', region: 'Europe'},
+            {name: 'Kazakhstan', flag: '🇰🇿', code: '+7', success: '92%', region: 'Asia'},
+            {name: 'Belgium', flag: '🇧🇪', code: '+32', success: '95%', region: 'Europe'},
+            {name: 'Italy', flag: '🇮🇹', code: '+39', success: '94%', region: 'Europe'},
+            {name: 'France', flag: '🇫🇷', code: '+33', success: '95%', region: 'Europe'},
+            {name: 'Spain', flag: '🇪🇸', code: '+34', success: '94%', region: 'Europe'},
+            {name: 'Vietnam', flag: '🇻🇳', code: '+84', success: '99%', region: 'Asia'},
+            {name: 'Argentina', flag: '🇦🇷', code: '+54', success: '92%', region: 'South America'},
+            {name: 'Hong Kong', flag: '🇭🇰', code: '+852', success: '96%', region: 'Asia'},
+            {name: 'Netherlands', flag: '🇳🇱', code: '+31', success: '95%', region: 'Europe'},
+            {name: 'Macao', flag: '🇲🇴', code: '+853', success: '94%', region: 'Asia'},
+            {name: 'Lithuania', flag: '🇱🇹', code: '+370', success: '93%', region: 'Europe'}
+        ];
+
+        let selectedService = {name: 'WhatsApp', category: 'Messaging'};
+        let selectedCountry = countries[0];
+        let selectedNumber = null;
+        let selectedPlan = null;
+
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        function openServiceModal() {
+            renderServices();
+            openModal('serviceModal');
+        }
+
+        function openCountryModal() {
+            renderCountries();
+            openModal('countryModal');
+        }
+
+        function renderServices() {
+            const serviceList = document.getElementById('serviceList');
+            const categories = {};
+            
+            services.forEach(service => {
+                if (!categories[service.category]) {
+                    categories[service.category] = [];
+                }
+                categories[service.category].push(service);
+            });
+
+            let html = '<div class="service-category"><div class="category-title">⭐ Most Popular</div>';
+            services.slice(0, 10).forEach(service => {
+                html += `
+                    <div class="service-item ${service.name === selectedService.name ? 'selected' : ''}" 
+                         onclick="selectService('${service.name}', '${service.category}')">
+                        <div class="service-icon" style="background: ${service.color}20;">
+                            <span style="font-size: 1.5rem;">${service.icon}</span>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600;">${service.name}</div>
+                            <div style="font-size: 0.875rem; color: #6b7280;">${service.category}</div>
+                        </div>
+                        ${service.name === selectedService.name ? '<span>✓ Selected</span>' : ''}
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            serviceList.innerHTML = html;
+        }
+
+        function selectService(name, category) {
+            selectedService = {name, category};
+            document.getElementById('selectedServiceName').textContent = name;
+            closeModal('serviceModal');
+        }
+
+        function searchServices(query) {
+            const filtered = services.filter(s => 
+                s.name.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            const serviceList = document.getElementById('serviceList');
+            let html = '';
+            
+            filtered.forEach(service => {
+                html += `
+                    <div class="service-item" onclick="selectService('${service.name}', '${service.category}')">
+                        <div class="service-icon" style="background: ${service.color}20;">
+                            <span style="font-size: 1.5rem;">${service.icon}</span>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600;">${service.name}</div>
+                            <div style="font-size: 0.875rem; color: #6b7280;">${service.category}</div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            serviceList.innerHTML = html || '<p style="padding: 1rem; text-align: center; color: #6b7280;">No services found</p>';
+        }
+
+        function renderCountries() {
+            const countryList = document.getElementById('countryList');
+            let html = '';
+            
+            countries.forEach(country => {
+                html += `
+                    <div class="country-item ${country.name === selectedCountry.name ? 'selected' : ''}" 
+                         onclick="selectCountry('${country.name}')">
+                        <span class="country-flag">${country.flag}</span>
+                        <div class="country-info">
+                            <div style="font-weight: 600;">${country.name}</div>
+                            <div style="font-size: 0.875rem; opacity: 0.8;">${country.region} • Available</div>
+                            <div style="margin-top: 0.25rem;">
+                                <span style="font-size: 0.875rem;">📈 ${country.success} success rate</span>
+                            </div>
+                        </div>
+                        ${country.badge ? `<span class="country-badge">${country.badge}</span>` : ''}
+                        ${country.name === selectedCountry.name ? '<span>✓</span>' : ''}
+                    </div>
+                `;
+            });
+            
+            countryList.innerHTML = html;
+        }
+
+        function selectCountry(name) {
+            selectedCountry = countries.find(c => c.name === name);
+            document.getElementById('selectedCountryName').textContent = `${selectedCountry.flag} ${selectedCountry.name}`;
+            localStorage.setItem('userCountry', selectedCountry.name);
+            closeModal('countryModal');
+        }
+
+        function searchCountries(query) {
+            const filtered = countries.filter(c => 
+                c.name.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            const countryList = document.getElementById('countryList');
+            let html = '';
+            
+            filtered.forEach(country => {
+                html += `
+                    <div class="country-item" onclick="selectCountry('${country.name}')">
+                        <span class="country-flag">${country.flag}</span>
+                        <div class="country-info">
+                            <div style="font-weight: 600;">${country.name}</div>
+                            <div style="font-size: 0.875rem; opacity: 0.8;">${country.region} • Available</div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            countryList.innerHTML = html || '<p style="padding: 1rem; text-align: center; color: #6b7280;">No countries found</p>';
+        }
+
+        function generatePhoneNumber(countryCode) {
+            const formats = {
+                '+1': () => `${countryCode} ${Math.floor(200 + Math.random() * 799)} ${Math.floor(100 + Math.random() * 899)} ${Math.floor(1000 + Math.random() * 8999)}`,
+                'default': () => `${countryCode} ${Math.floor(100000000 + Math.random() * 899999999)}`
+            };
+            
+            return (formats[countryCode] || formats['default'])();
+        }
+
+        function renderPhoneNumbers() {
+            const container = document.getElementById('phoneNumbers');
+            const numbers = [
+                {number: generatePhoneNumber(selectedCountry.code), best: true},
+                {number: generatePhoneNumber(selectedCountry.code), best: false},
+                {number: generatePhoneNumber(selectedCountry.code), best: false}
+            ];
+            
+            let html = '';
+            numbers.forEach((item, index) => {
+                html += `
+                    <div class="phone-number-item ${index === 0 ? 'selected' : ''}" onclick="selectNumber(${index})">
+                        ${item.best ? '<span class="badge">Best</span>' : ''}
+                        <div class="phone-number">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            ${item.number}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            selectedNumber = numbers[0].number;
+        }
+
+        function selectNumber(index) {
+            const items = document.querySelectorAll('.phone-number-item');
+            items.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('selected');
+                    selectedNumber = item.querySelector('.phone-number').textContent.trim();
+                } else {
+                    item.classList.remove('selected');
+                }
+            });
+        }
+
+        const currencyRates = {
+            'United States': {symbol: 'US$', rate: 1, code: 'USD'},
+            'Kenya': {symbol: 'KES', rate: 130, code: 'KES'},
+            'United Kingdom': {symbol: '£', rate: 0.79, code: 'GBP'},
+            'default': {symbol: 'US$', rate: 1, code: 'USD'}
+        };
+
+        function renderPlans() {
+            const container = document.getElementById('planOptions');
+            const currency = currencyRates[selectedCountry.name] || currencyRates['default'];
+            const oneTimePrice = (12 * currency.rate).toFixed(2);
+            const yearlyPriceTotal = (139 * currency.rate).toFixed(2);
+            const yearlyPriceDaily = (0.38 * currency.rate).toFixed(2);
+            
+            container.innerHTML = `
+                <div class="plan-card selected" onclick="selectPlan('onetime')">
+                    <div class="plan-name">One-Time</div>
+                    <div style="color: #6b7280; font-size: 0.875rem;">Short-term solution for quick needs</div>
+                    <div class="plan-price">${currency.symbol} ${oneTimePrice}</div>
+                    <ul class="plan-features">
+                        <li>One verification only, no reuse possible</li>
+                        <li>Instant number for 1300+ apps</li>
+                    </ul>
+                </div>
+                <div class="plan-card" onclick="selectPlan('yearly')">
+                    <span class="plan-badge">Most Popular</span>
+                    <div class="plan-name">Yearly</div>
+                    <div style="color: #6b7280; font-size: 0.875rem;">Complete year-round protection</div>
+                    <div class="plan-price">${currency.symbol} ${yearlyPriceDaily}/day</div>
+                    <div style="font-size: 0.875rem; color: #10b981; margin-bottom: 1rem;">
+                        billed ${currency.symbol} ${yearlyPriceTotal}/year
+                    </div>
+                    <ul class="plan-features">
+                        <li>Premium numbers from top-tier carriers</li>
+                        <li>Replacement number if expired</li>
+                    </ul>
+                </div>
+            `;
+            
+            selectedPlan = {type: 'onetime', price: oneTimePrice, currency: currency.code};
+        }
+
+        function selectPlan(type) {
+            const cards = document.querySelectorAll('.plan-card');
+            const currency = currencyRates[selectedCountry.name] || currencyRates['default'];
+            
+            cards.forEach((card, index) => {
+                if ((type === 'onetime' && index === 0) || (type === 'yearly' && index === 1)) {
+                    card.classList.add('selected');
+                    const price = type === 'onetime' ? 
+                        (12 * currency.rate).toFixed(2) : 
+                        (139 * currency.rate).toFixed(2);
+                    selectedPlan = {type, price, currency: currency.code};
+                } else {
+                    card.classList.remove('selected');
+                }
+            });
+        }
+
+        function goToStep(step) {
+            document.querySelectorAll('.step-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            document.getElementById(`step${step}`).style.display = 'block';
+            document.getElementById('currentStep').textContent = step;
+            document.getElementById('stepIndicator').textContent = step;
+            
+            if (step === 2) {
+                renderPhoneNumbers();
+            } else if (step === 3) {
+                renderPlans();
+            }
+        }
+
+        function proceedToPayment() {
+            const orderData = {
+                service: selectedService,
+                country: selectedCountry,
+                number: selectedNumber,
+                plan: selectedPlan
+            };
+            
+            localStorage.setItem('orderData', JSON.stringify(orderData));
+            window.location.href = 'payment.html';
+        }
+
+        renderServices();
+        renderCountries();
+    </script>
+</body>
+</html>
