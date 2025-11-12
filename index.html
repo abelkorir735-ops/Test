@@ -382,7 +382,7 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, #10b981, #059669);
+            position: relative;
             min-height: 300px;
             display: flex;
             align-items: center;
@@ -390,8 +390,38 @@
             color: white;
             text-align: center;
             padding: 3rem 1rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-size: cover;
             background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-bg.active {
+            opacity: 1;
+        }
+
+        .hero-bg:nth-child(1) {
+    background: linear-gradient(135deg, rgba(16,185,129,0.9), rgba(5,150,105,0.9)), 
+                url('assets/images/hero-bg1.jpg');
+}
+
+.hero-bg:nth-child(2) {
+    background: linear-gradient(135deg, rgba(16,185,129,0.9), rgba(5,150,105,0.9)), 
+                url('assets/images/hero-bg2.jpg');
+}
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -675,6 +705,43 @@
             color: var(--primary-color);
         }
 
+        .notification-box {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            color: white;
+            font-weight: 600;
+            z-index: 2000;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .notification-box.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .notification-box.success {
+            background: #10b981;
+        }
+
+        .notification-box.error {
+            background: #ef4444;
+        }
+
+        .forgot-password-link {
+            color: var(--primary-color);
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 1.75rem;
@@ -687,18 +754,22 @@
             .testimonials {
                 grid-template-columns: 1fr;
             }
+
+            .notification-box {
+                right: 10px;
+                left: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="notification-box" id="notificationBox"></div>
+
     <header class="header">
         <div class="logo-section">
-            <div class="logo-img">N</div>
-            <div class="brand-name">
-                Numero<svg width="24" height="24" viewBox="0 0 24 24" style="display: inline-block; vertical-align: middle;">
-                    <path fill="currentColor" d="M19 3L5 21M5 3L19 21" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-                </svg>
-            </div>
+    <img src="assets/images/numerox.png" alt="NumeroX Logo" class="logo-img">
+    <div class="brand-name">NumeroX</div>
+</div>
         </div>
         <div class="header-icons">
             <button class="icon-btn" id="notificationBtn">
@@ -740,13 +811,13 @@
     <div class="popup" id="settingsPopup">
         <div class="popup-content">
             <div class="popup-header">
-                <h3>Settings</h3>
+                <h3 data-translate="settingsTitle">Settings</h3>
                 <button class="close-btn" onclick="closePopup('settingsPopup')">&times;</button>
             </div>
             
             <div class="settings-item">
                 <div class="toggle-switch">
-                    <h4>Dark Mode</h4>
+                    <h4 data-translate="darkMode">Dark Mode</h4>
                     <div class="switch" id="themeSwitch" onclick="toggleTheme()">
                         <div class="switch-slider"></div>
                     </div>
@@ -754,7 +825,7 @@
             </div>
 
             <div class="settings-item">
-                <h4>Language</h4>
+                <h4 data-translate="language">Language</h4>
                 <select id="languageSelect" onchange="changeLanguage(this.value)">
                     <option value="en">English</option>
                     <option value="ar">Arabic</option>
@@ -767,7 +838,7 @@
             </div>
 
             <div class="settings-item">
-                <h4>Profile</h4>
+                <h4 data-translate="profile">Profile</h4>
                 <div class="profile-info">
                     <div class="avatar" id="profileAvatar">U</div>
                     <div>
@@ -778,7 +849,7 @@
             </div>
 
             <div class="settings-item">
-                <h4>Active Sessions</h4>
+                <h4 data-translate="activeSessions">Active Sessions</h4>
                 <div id="activeSessions" style="font-size: 0.875rem; color: #6b7280;">
                     Loading...
                 </div>
@@ -834,11 +905,13 @@
         </div>
     </div>
 
-    <div class="hero" style="background-image: url('numerox-hero.bg');">
-        <div>
-            <h1>Verify Your Accounts Securely</h1>
-            <p>Get instant international phone numbers for verification</p>
-            <button class="btn btn-primary" style="margin-top: 1.5rem; font-size: 1.1rem;" onclick="checkAuthAndRedirect()">Get Started</button>
+    <div class="hero">
+        <div class="hero-bg active"></div>
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 data-translate="heroTitle">Verify Your Accounts Securely</h1>
+            <p data-translate="heroSubtitle">Get instant international phone numbers for verification</p>
+            <button class="btn btn-primary" style="margin-top: 1.5rem; font-size: 1.1rem;" onclick="checkAuthAndRedirect()" data-translate="getStarted">Get Started</button>
         </div>
     </div>
 
@@ -1039,18 +1112,18 @@
             </div>
             
             <div class="auth-tabs">
-                <button class="auth-tab active" id="signupTab" onclick="switchAuthTab('signup')">Sign Up</button>
-                <button class="auth-tab" id="loginTab" onclick="switchAuthTab('login')">Login</button>
+                <button class="auth-tab active" id="signupTab" onclick="switchAuthTab('signup')" data-translate="signUp">Sign Up</button>
+                <button class="auth-tab" id="loginTab" onclick="switchAuthTab('login')" data-translate="login">Login</button>
             </div>
 
             <div id="signupForm">
                 <div class="form-group">
-                    <label>Email</label>
+                    <label data-translate="email">Email</label>
                     <input type="email" id="signupEmail" placeholder="your@email.com">
                     <div class="error-message" id="signupEmailError"></div>
                 </div>
                 <div class="form-group">
-                    <label>Password (6 digits)</label>
+                    <label data-translate="password">Password (6 digits)</label>
                     <input type="password" id="signupPassword" placeholder="123456" maxlength="6">
                     <div class="error-message" id="signupPasswordError"></div>
                 </div>
@@ -1082,7 +1155,8 @@
                     <input type="password" id="loginPassword" placeholder="Enter your password">
                     <div class="error-message" id="loginPasswordError"></div>
                 </div>
-                <button class="btn btn-primary" style="width: 100%;" onclick="handleLogin()">Login</button>
+                <a class="forgot-password-link" onclick="openForgotPassword()">Forgot Password?</a>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="handleLogin()" data-translate="login">Login</button>
                 
                 <div class="divider">
                     <span>OR</span>
@@ -1101,10 +1175,28 @@
         </div>
     </div>
 
+    <div class="popup" id="forgotPasswordPopup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>Reset Password</h3>
+                <button class="close-btn" onclick="closePopup('forgotPasswordPopup')">&times;</button>
+            </div>
+            <div style="padding: 1rem;">
+                <p style="margin-bottom: 1rem; color: #6b7280;">Enter your email address and we'll send you a password reset link.</p>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="resetEmail" placeholder="your@email.com">
+                    <div class="error-message" id="resetEmailError"></div>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" onclick="handlePasswordReset()">Send Reset Link</button>
+            </div>
+        </div>
+    </div>
+
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
         import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js';
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
 
         const firebaseConfig = {
             apiKey: "AIzaSyBtx-D3nbl1lKOhCzEixDZRgRDM4NbtOBE",
@@ -1125,6 +1217,7 @@
         window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
         window.signInWithEmailAndPassword = signInWithEmailAndPassword;
         window.signOut = signOut;
+        window.sendPasswordResetEmail = sendPasswordResetEmail;
 
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -1418,6 +1511,26 @@
             }
         };
 
+        let currentBgIndex = 0;
+        const heroBackgrounds = document.querySelectorAll('.hero-bg');
+        
+        setInterval(() => {
+            heroBackgrounds[currentBgIndex].classList.remove('active');
+            currentBgIndex = (currentBgIndex + 1) % heroBackgrounds.length;
+            heroBackgrounds[currentBgIndex].classList.add('active');
+        }, 2000);
+
+        function showNotification(message, type = 'success') {
+            const notificationBox = document.getElementById('notificationBox');
+            notificationBox.textContent = message;
+            notificationBox.className = `notification-box ${type}`;
+            setTimeout(() => notificationBox.classList.add('show'), 10);
+            
+            setTimeout(() => {
+                notificationBox.classList.remove('show');
+            }, 3000);
+        }
+
         function changeLanguage(lang) {
             localStorage.setItem('language', lang);
             const t = translations[lang] || translations.en;
@@ -1433,24 +1546,18 @@
             document.querySelectorAll('[data-translate]').forEach(element => {
                 const key = element.getAttribute('data-translate');
                 if (t[key]) {
-                    if (element.tagName === 'INPUT' && element.placeholder) {
-                        element.placeholder = t[key];
-                    } else {
-                        element.textContent = t[key];
-                    }
+                    element.textContent = t[key];
                 }
             });
-            
-            location.reload();
         }
 
-        const savedLanguage = localStorage.getItem('language') || 'en';
-        if (savedLanguage) {
-            document.getElementById('languageSelect').value = savedLanguage;
-            if (savedLanguage !== 'en') {
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            if (savedLanguage) {
+                document.getElementById('languageSelect').value = savedLanguage;
                 changeLanguage(savedLanguage);
             }
-        }
+        });
 
         function toggleFAQ(element) {
             const answer = element.nextElementSibling;
@@ -1578,10 +1685,36 @@
             
             try {
                 await window.signInWithEmailAndPassword(window.auth, email, password);
+                showNotification('Login successful!', 'success');
                 closePopup('authPopup');
                 window.location.href = 'get-started.html';
             } catch (error) {
+                showNotification('Invalid email or password', 'error');
                 document.getElementById('loginPasswordError').textContent = 'Invalid credentials';
+            }
+        }
+
+        function openForgotPassword() {
+            closePopup('authPopup');
+            openPopup('forgotPasswordPopup');
+        }
+
+        async function handlePasswordReset() {
+            const email = document.getElementById('resetEmail').value;
+            document.getElementById('resetEmailError').textContent = '';
+
+            if (!email) {
+                document.getElementById('resetEmailError').textContent = 'Email is required';
+                return;
+            }
+
+            try {
+                await window.sendPasswordResetEmail(window.auth, email);
+                showNotification('Password reset email sent! Check your inbox.', 'success');
+                closePopup('forgotPasswordPopup');
+            } catch (error) {
+                showNotification(error.message, 'error');
+                document.getElementById('resetEmailError').textContent = error.message;
             }
         }
 
@@ -1589,10 +1722,11 @@
             try {
                 const provider = new window.GoogleAuthProvider();
                 await window.signInWithPopup(window.auth, provider);
+                showNotification('Signed in with Google successfully!', 'success');
                 closePopup('authPopup');
                 window.location.href = 'get-started.html';
             } catch (error) {
-                alert('Google sign-in failed: ' + error.message);
+                showNotification(error.message, 'error');
             }
         }
 
